@@ -1,0 +1,19 @@
+# Activer la réécriture d’URL (mod_rewrite)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Spécifie le chemin de base si ton projet est dans un sous-dossier
+    RewriteBase /monitoring/
+
+    # Redirige vers index.php si le fichier ou dossier n'existe pas
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# Affiche les erreurs PHP (utile en développement local)
+php_flag display_errors on
+php_value error_reporting 32767
+
+# Redirige vers une page personnalisée si 404
+ErrorDocument 404 /404.html
