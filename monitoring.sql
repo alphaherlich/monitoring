@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : sql105.byetcluster.com
--- Généré le :  mer. 08 avr. 2026 à 12:14
--- Version du serveur :  11.4.10-MariaDB
--- Version de PHP :  7.2.22
+-- Hôte : 127.0.0.1
+-- Généré le : jeu. 09 avr. 2026 à 22:56
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `if0_38866205_monitoring`
+-- Base de données : `monitoring`
 --
 
 -- --------------------------------------------------------
@@ -77,11 +76,11 @@ CREATE TABLE `health_stats` (
 --
 
 INSERT INTO `health_stats` (`id`, `date`, `patients`, `revenus`, `tests`) VALUES
-(1, '2025-08-01 10:00:00', 12, '500.00', 8),
-(2, '2025-08-02 10:00:00', 15, '750.00', 10),
-(3, '2025-08-03 10:00:00', 18, '650.00', 12),
-(4, '2025-08-04 10:00:00', 10, '400.00', 7),
-(5, '2025-08-05 10:00:00', 22, '1200.00', 15);
+(1, '2025-08-01 10:00:00', 12, 500.00, 8),
+(2, '2025-08-02 10:00:00', 15, 750.00, 10),
+(3, '2025-08-03 10:00:00', 18, 650.00, 12),
+(4, '2025-08-04 10:00:00', 10, 400.00, 7),
+(5, '2025-08-05 10:00:00', 22, 1200.00, 15);
 
 -- --------------------------------------------------------
 
@@ -129,7 +128,8 @@ INSERT INTO `patients` (`id`, `nom`, `prenom`, `date_naissance`, `sexe`, `teleph
 (12, 'Maes', 'Du3615', '2025-08-09', '', '24177691826', 'Maes@gmail.com', '2025-08-09 06:28:53'),
 (14, 'Mepeme', 'Murphy', '2025-08-12', '', '241062400099', 'Ulis@gmail.com', '2025-08-12 03:51:51'),
 (18, 'Love', 'Love', '2024-09-15', '', '066176929', 'Love@gmail.com', '2025-09-05 02:55:26'),
-(19, 'Melki', 'Man', '2025-11-08', '', '066218902', 'Man@gmail.com', '2025-11-08 07:47:50');
+(19, 'Melki', 'Man', '2025-11-08', '', '066218902', 'Man@gmail.com', '2025-11-08 07:47:50'),
+(20, 'NDOUMBOU-DAOUD', 'Herlich', '2026-04-08', '', '33344555', 'Unnamed Road', '2026-04-08 21:08:10');
 
 -- --------------------------------------------------------
 
@@ -163,19 +163,20 @@ CREATE TABLE `revenus` (
 --
 
 INSERT INTO `revenus` (`id`, `patient_id`, `montant`, `date_enregistrement`, `devise`) VALUES
-(1, 8, '25.00', '2025-08-09 01:59:02', '€'),
-(2, 8, '25.00', '2025-08-09 01:59:02', '€'),
-(3, 9, '25.00', '2025-08-09 03:08:42', 'CFA'),
-(4, 10, '300.00', '2025-08-09 03:10:34', '€'),
-(5, 11, '200.00', '2025-08-09 03:16:23', '€'),
-(6, 12, '100.00', '2025-08-09 06:28:53', '€'),
-(7, 13, '20.00', '2025-08-10 03:37:48', 'CFA'),
-(8, 14, '100.00', '2025-08-12 03:51:51', '€'),
-(9, 15, '1000.00', '2025-08-12 04:43:59', 'CFA'),
-(10, 16, '20.00', '2025-09-03 14:54:36', 'CFA'),
-(11, 17, '20.50', '2025-09-03 15:13:49', '€'),
-(12, 18, '50000.00', '2025-09-05 02:55:26', 'CFA'),
-(13, 19, '17000.00', '2025-11-08 07:47:50', 'CFA');
+(1, 8, 25.00, '2025-08-09 01:59:02', '€'),
+(2, 8, 25.00, '2025-08-09 01:59:02', '€'),
+(3, 9, 25.00, '2025-08-09 03:08:42', 'CFA'),
+(4, 10, 300.00, '2025-08-09 03:10:34', '€'),
+(5, 11, 200.00, '2025-08-09 03:16:23', '€'),
+(6, 12, 100.00, '2025-08-09 06:28:53', '€'),
+(7, 13, 20.00, '2025-08-10 03:37:48', 'CFA'),
+(8, 14, 100.00, '2025-08-12 03:51:51', '€'),
+(9, 15, 1000.00, '2025-08-12 04:43:59', 'CFA'),
+(10, 16, 20.00, '2025-09-03 14:54:36', 'CFA'),
+(11, 17, 20.50, '2025-09-03 15:13:49', '€'),
+(12, 18, 50000.00, '2025-09-05 02:55:26', 'CFA'),
+(13, 19, 17000.00, '2025-11-08 07:47:50', 'CFA'),
+(14, 20, -0.06, '2026-04-08 21:08:10', '$');
 
 -- --------------------------------------------------------
 
@@ -222,7 +223,8 @@ INSERT INTO `tests` (`id`, `title`, `test_date`) VALUES
 (3, 'Junior', '2025-08-03'),
 (4, 'Eya', '2025-09-03'),
 (5, 'Rere', '2025-09-03'),
-(6, 'Love', '2025-09-05');
+(6, 'Love', '2025-09-05'),
+(7, 'maladie', '2024-03-27');
 
 -- --------------------------------------------------------
 
@@ -383,7 +385,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT pour la table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT pour la table `reports`
@@ -395,7 +397,7 @@ ALTER TABLE `reports`
 -- AUTO_INCREMENT pour la table `revenus`
 --
 ALTER TABLE `revenus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT pour la table `system_stats`
@@ -407,7 +409,7 @@ ALTER TABLE `system_stats`
 -- AUTO_INCREMENT pour la table `tests`
 --
 ALTER TABLE `tests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `tests_plan`
